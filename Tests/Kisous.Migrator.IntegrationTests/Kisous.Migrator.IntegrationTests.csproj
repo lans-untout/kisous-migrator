@@ -13,11 +13,8 @@
     <PackageReference Include="Testcontainers.MsSql" />
     <PackageReference Include="Testcontainers.PostgreSql" />
     <PackageReference Include="NUnit" />
-    <PackageReference Include="NUnit3TestAdapter" />`n    <PackageReference Include="NUnit.Analyzers" />
-  </ItemGroup>
-
-  <ItemGroup>
-    
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="NUnit.Analyzers" />
   </ItemGroup>
 
   <ItemGroup>

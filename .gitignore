@@ -1,0 +1,49 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+out/
+
+# Test output
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Logs
+*.log
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE and editor folders
+.vs/
+.vscode/
+.idea/
+
+# Rider
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/packages/
+
+# .NET local tools
+.dotnet/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.env.*
+
+# Azure Functions local settings
+local.settings.json
