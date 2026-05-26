@@ -1,8 +1,8 @@
 name: Release
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: [ "main" ]
 
 jobs:
   publish:
@@ -13,6 +13,8 @@ jobs:
       
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -24,11 +26,17 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         
-    - name: Get Version
-      id: get_version
-      run: |
-        TAG=${{ github.event.release.tag_name }}
-        echo "VERSION=${TAG#v}" >> $GITHUB_ENV
+    - name: Setup GitVersion
+      uses: gittools/actions/gitversion/setup@v3.1.11
+      with:
+        versionSpec: '5.x'
+
+    - name: Determine Version
+      id: gitversion
+      uses: gittools/actions/gitversion/execute@v3.1.11
+
+    - name: Export Version
+      run: echo "VERSION=${{ steps.gitversion.outputs.SemVer }}" >> $GITHUB_ENV
         
     - name: Restore dependencies
       run: dotnet restore
