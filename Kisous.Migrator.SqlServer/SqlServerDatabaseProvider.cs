@@ -12,7 +12,6 @@ namespace Kisous.Migrator.SqlServer;
 public sealed class SqlServerDatabaseProvider : IDatabaseProvider, IDisposable, IAsyncDisposable
 {
     private readonly SqlConnection _connection;
-    private static readonly StringComparison SqlComparison = StringComparison.OrdinalIgnoreCase;
 
     public SqlServerDatabaseProvider(IOptions<MigratorOptions> options)
     {

@@ -90,9 +90,9 @@ public sealed class MigrationScriptDiscovery
                 forwardContent,
                 ComputeChecksum(forwardContent),
                 pair.Value.RollbackPath,
-                string.IsNullOrWhiteSpace(pair.Value.RollbackPath) ? null : Path.GetFileName(pair.Value.RollbackPath),
-                rollbackContent,
-                rollbackContent == null ? null : ComputeChecksum(rollbackContent)));
+                string.IsNullOrWhiteSpace(pair.Value.RollbackPath) ? string.Empty : Path.GetFileName(pair.Value.RollbackPath),
+                rollbackContent ?? string.Empty,
+                rollbackContent == null ? string.Empty : ComputeChecksum(rollbackContent)));
         }
 
         return scripts;
