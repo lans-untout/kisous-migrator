@@ -91,7 +91,3 @@ kisous-migrator run --provider SqlServer --connection-string "..."
 3. Commit your changes (`git commit -m 'Add an amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-## License
-
-Copyright © Untout Limited. All rights reserved.
