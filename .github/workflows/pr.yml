@@ -26,11 +26,21 @@ jobs:
       
     - name: Test and Collect Coverage
       run: dotnet test --no-build --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+
+    - name: Install ReportGenerator
+      run: dotnet tool install dotnet-reportgenerator-globaltool --tool-path .tools
+
+    - name: Merge Coverage Reports
+      run: |
+        ./.tools/reportgenerator \
+          -reports:coverage/**/coverage.cobertura.xml \
+          -targetdir:coverage/merged \
+          -reporttypes:Cobertura
       
     - name: Code Coverage Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: coverage/**/coverage.cobertura.xml
+        filename: coverage/merged/Cobertura.xml
         badge: true
         format: markdown
         output: both
