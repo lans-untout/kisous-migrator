@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="Kisous.Migrator.Cli/Kisous.Migrator.Cli.csproj" />
+  <Project Path="Kisous.Migrator.Extensions.DependencyInjection/Kisous.Migrator.Extensions.DependencyInjection.csproj" />
+  <Project Path="Tests/Kisous.Migrator.IntegrationTests/Kisous.Migrator.IntegrationTests.csproj" />
+  <Project Path="Kisous.Migrator.PostgreSql/Kisous.Migrator.PostgreSql.csproj" />
+  <Project Path="Kisous.Migrator.SqlServer/Kisous.Migrator.SqlServer.csproj" />
+  <Project Path="Tests/Kisous.Migrator.Tests/Kisous.Migrator.Tests.csproj" />
+  <Project Path="Kisous.Migrator/Kisous.Migrator.csproj" />
+</Solution>

@@ -1,0 +1,12 @@
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\bin\Debug\net10.0\Kisous.Migrator.deps.json
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\bin\Debug\net10.0\Kisous.Migrator.dll
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\bin\Debug\net10.0\Kisous.Migrator.pdb
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\Kisous.Migrator.csproj.AssemblyReference.cache
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\Kisous.Migrator.GeneratedMSBuildEditorConfig.editorconfig
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\Kisous.Migrator.AssemblyInfoInputs.cache
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\Kisous.Migrator.AssemblyInfo.cs
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\Kisous.Migrator.csproj.CoreCompileInputs.cache
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\Kisous.Migrator.dll
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\refint\Kisous.Migrator.dll
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\Kisous.Migrator.pdb
+E:\works\untout\kisous-db-migrator\Kisous.Migrator\obj\Debug\net10.0\ref\Kisous.Migrator.dll

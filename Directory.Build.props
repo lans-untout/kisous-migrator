@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+    <!-- NuGet Metadata -->
+    <Authors>Lansana Mara</Authors>
+    <Company>Untout Limited</Company>
+    <Version>1.0.0-preview1</Version>
+    <Description>A robust database migration tool and framework.</Description>
+    <RepositoryUrl>https://github.com/kisous/kisous-db-migrator</RepositoryUrl>
+  </PropertyGroup>
+</Project>

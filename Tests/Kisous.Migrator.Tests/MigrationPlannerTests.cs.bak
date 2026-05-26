@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using FluentAssertions;
+using Kisous.Migrator.Models;
+using Kisous.Migrator.Services;
+using NUnit.Framework;
+
+namespace Kisous.Migrator.UnitTests;
+
+[TestFixture]
+public class MigrationPlannerTests
+{
+    private readonly MigrationPlanner _planner = new();
+
+    private MigrationScript CreateScript(string id) => new(
+        id, "path", "$id.sql", "CREATE TABLE dummy;", "hash", null, null, null, null);
+
+    private MigrationJournalEntry CreateEntry(string id) => new(
+        1, id, MigrationDirection.Up, MigrationExecutionMode.Execute, "$id.sql", "hash", "1.0.0", "test", DateTimeOffset.UtcNow, 1);
+
+    [Test]
+    public void BuildPlan_EmptyState_ToLatest_ShouldGenerateAllUpSteps()
+    {
+        var scripts = new[] { CreateScript("001_init") };
+        var entries = Array.Empty<MigrationJournalEntry>();
+
+        var plan = _planner.BuildPlan(scripts, entries, "latest");
+
+        plan.HasChanges.Should().BeTrue();
+        plan.Steps.Should().HaveCount(1);
+        plan.Steps[0].Direction.Should().Be(MigrationDirection.Up);
+    }
+
+    [Test]
+    public void BuildPlan_AlreadyAtLatest_ShouldReturnEmptyPlan()
+    {
+        var scripts = new[] { CreateScript("001_init") };
+        var entries = new[] { CreateEntry("001_init") };
+
+        var plan = _planner.BuildPlan(scripts, entries, "latest");
+
+        plan.HasChanges.Should().BeFalse();
+        plan.Steps.Should().BeEmpty();
+    }
+
+    [Test]
+    public void BuildBaselinePlan_EmptyJournal_ShouldReturnBaselinePlan()
+    {
+        var scripts = new[] { CreateScript("001_init") };
+        var entries = Array.Empty<MigrationJournalEntry>();
+
+        var plan = _planner.BuildBaselinePlan(scripts, entries, "latest");
+
+        plan.HasChanges.Should().BeTrue();
+        plan.Steps[0].ExecutionMode.Should().Be(MigrationExecutionMode.Baseline);
+    }
+}
