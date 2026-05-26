@@ -47,3 +47,5 @@ Thumbs.db
 
 # Azure Functions local settings
 local.settings.json
+
+*.cache
