@@ -1,4 +1,4 @@
-mode: MainLine
+mode: ContinuousDeployment
 
 next-version: 1.0.0
 
