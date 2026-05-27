@@ -1,11 +1,11 @@
-mode: ContinuousDelivery
+mode: Mainline
 
 next-version: 1.0.0
 
 branches:
   main:
     regex: ^main$
-    increment: Minor
+    increment: Patch
     label: ''
   feature:
     regex: ^features?[/-]
