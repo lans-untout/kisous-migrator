@@ -36,7 +36,7 @@ The project is structured into modular components:
 
 ## Getting Started
 
-*(Packages are pending publication to NuGet)*
+*(Packages are published to GitHub Packages from the release workflow.)*
 
 In your .NET 8 or .NET 10 project, install the core package and the provider you need:
 
@@ -48,6 +48,56 @@ dotnet add package Kisous.Migrator.Extensions.DependencyInjection
 dotnet add package Kisous.Migrator.SqlServer
 # or
 dotnet add package Kisous.Migrator.PostgreSql
+```
+
+## Reuse The Library
+
+You can consume this library in two ways:
+
+### As A Package
+
+If you are using the published packages from GitHub Packages or another NuGet feed, add the packages you need to your project:
+
+```bash
+dotnet add package Kisous.Migrator
+dotnet add package Kisous.Migrator.Extensions.DependencyInjection
+dotnet add package Kisous.Migrator.SqlServer
+# or
+dotnet add package Kisous.Migrator.PostgreSql
+```
+
+If you use GitHub Packages, make sure your NuGet source is configured and authenticated for the repository owner that publishes the packages.
+
+```xml
+<configuration>
+  <packageSources>
+    <add key="github" value="https://nuget.pkg.github.com/<OWNER>/index.json" />
+  </packageSources>
+</configuration>
+```
+
+Replace `<OWNER>` with the GitHub organization or user that publishes the package.
+
+### As A Local Project Reference
+
+If you are working inside this repository, or you want to reuse the code before the packages are published, reference the projects directly:
+
+```bash
+dotnet add reference <path-to-repo>/Kisous.Migrator/Kisous.Migrator.csproj
+dotnet add reference <path-to-repo>/Kisous.Migrator.Extensions.DependencyInjection/Kisous.Migrator.Extensions.DependencyInjection.csproj
+dotnet add reference <path-to-repo>/Kisous.Migrator.SqlServer/Kisous.Migrator.SqlServer.csproj
+```
+
+Once referenced, register the migrator in your app:
+
+```csharp
+using Kisous.Migrator.Extensions.DependencyInjection;
+
+builder.Services.AddKisousMigrator(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    // options.UsePostgreSql(...);
+});
 ```
 
 ## Usage
