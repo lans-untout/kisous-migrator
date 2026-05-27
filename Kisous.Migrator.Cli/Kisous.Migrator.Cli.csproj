@@ -9,17 +9,18 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" />
     <PackageReference Include="System.CommandLine" />
+    <None Include="README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-<PropertyGroup>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>kisous-migrate</ToolCommandName>
-</PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
 </Project>
