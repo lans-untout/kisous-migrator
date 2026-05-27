@@ -55,8 +55,12 @@ public class Program
             var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
             logger.LogInformation("Starting Kisous Migration...");
 
+            var bootstrapPath = builder.Configuration["bootstrap-path"] ?? MigratorOptions.DefaultBootstrapScriptPath;
+
             var token = app.Services.GetRequiredService<IHostApplicationLifetime>().ApplicationStopping;
-            var scripts = factory.AugmentWithBootstrap(discovery.Discover(builder.Configuration["migrations-path"] ?? MigratorOptions.DefaultMigrationsPath), MigratorOptions.DefaultBootstrapScriptPath);
+            var scripts = factory.AugmentWithBootstrap(
+                discovery.Discover(builder.Configuration["migrations-path"] ?? MigratorOptions.DefaultMigrationsPath), 
+                bootstrapPath);
             var entries = await dbProvider.GetEntriesAsync(token);
             var plan = planner.BuildPlan(scripts, entries, builder.Configuration["target"] ?? MigratorOptions.LatestTarget);
             
